@@ -10,14 +10,11 @@ class TestAuthUser:
  @allure.story("user_auth")
  @allure.severity('Critical')
  def test_user_auth(self):
-   with allure.step("Отправляем запрос на добавление юзера"):
+   with allure.step("Проверяем успешную авторизацию юзера (получение токена)"):
     response = Register.register_app_user
     return response
-   with allure.step("Отправляем запрос на авторизацию"):
     response = Register.auth_app_user
-   with allure.step("Проверяем , что статус код = 200"):
     assert response.status_code == 200, f" response status code is not 200 {response.status_code}"
-   with allure.step("Проверяем что токен авторизации не пустой"):
     assert response.json()["access_token"] is not None
 
  @allure.feature("test_authorization")

@@ -24,7 +24,7 @@ class Register:
 
     def auth_app_user(self):
       url = "https://stores-tests-api.herokuapp.com/auth"
-      data = register_app_user
+      data = Register.register_app_user
       response = requests.post(url=url, data=data)
       return response.json()["access_token"]
 

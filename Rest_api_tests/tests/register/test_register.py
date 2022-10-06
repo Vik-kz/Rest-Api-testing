@@ -29,5 +29,5 @@ class TestRegisterUser:
     response = register_user
    with allure.step("Проверяем,что статус код = 400"):
     assert response.status_code == 400
-   with allure.step("Проверяем сообщение в теле ответа о том, что поля обязательны для заполнения"):
+   with allure.step("Проверяем сообщение в теле ответа сообщение о том, что поля обязательны для заполнения"):
     assert response.json()["message"] == "Username and password are required fields"
